@@ -1,16 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const GoalItem = props => {
+const ItemObjetivo = props => {
     return (
-    <View style={styles.listItem}>
+    <View style={estilos.itemLista}>
         <Text> {props.title} </Text>
     </View>
     )
 }
 
-const styles = StyleSheet.create({
-    listItem: {
+const estilos = StyleSheet.create({
+    itemLista: {
         padding: 10,
         marginVertical: 10,
         backgroundColor: '#ccc',
@@ -19,4 +19,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default GoalItem;
+export default ItemObjetivo;

@@ -1,20 +1,28 @@
 import React, { useState } from 'react';
 import { View, FlatList } from 'react-native';
 
-import GoalItem from './components/GoalItem';
-import GoalInput from './components/GoalInput';
+import ItemObjetivo from './components/ItemObjetivo';
+import InputObjetivo from './components/InputObjetivo';
 
 export default function App() {
-  const [courseGoals, setCourseGoals] = useState([]);
+  const [objetivos, setObjetivos] = useState([]);
 
-  const addGoalHandler = enteredGoal => setCourseGoals(
-    currentGoals => [...currentGoals, {id: Math.random().toString(), value: enteredGoal}]);
+  const adicionarObjetivos = objetivoDigitado => setObjetivos(
+    objetivosAtuais => [
+      ...objetivosAtuais, 
+      { 
+        id: Math.random().toString(), 
+        value: objetivoDigitado
+      }
+    ]
+  );
 
   return (
     <View>
-      <GoalInput onAddGoal={addGoalHandler}/>
-      <FlatList data={courseGoals} renderItem={itemData => (
-        <GoalItem title={itemData.item.value}/>
+      <InputObjetivo aoAdicionarObjetivo={adicionarObjetivos}/>
+
+      <FlatList data={objetivos} renderItem={objetivo => (
+        <ItemObjetivo title={objetivo.item.value}/>
       )}/>
     </View>
   );
