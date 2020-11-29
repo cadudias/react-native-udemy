@@ -1,11 +1,13 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 const ItemObjetivo = props => {
     return (
-    <View style={estilos.itemLista}>
-        <Text> {props.title} </Text>
-    </View>
+    <TouchableOpacity activeOpacity={0.8} onPress={() => props.aoRemover(props.id)}>
+        <View style={estilos.itemLista}>
+            <Text>{props.title}</Text>
+        </View>
+    </TouchableOpacity>
     )
 }
 
